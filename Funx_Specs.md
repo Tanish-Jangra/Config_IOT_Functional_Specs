@@ -174,11 +174,25 @@
 - **Request Data:**
   - `deviceSerialNo`
 - **Error Handling:**
-  - [Error handling details...]
+  - If request type is not POST:
+    - JSON Response: ` {"success": 0, "status": 404, "message": "Invalid request type"} `
+  - If empty or missing fields:
+    - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
+"fields": ["email"]} `
+  - If invalid device serial no:
+    - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device serial 
+number"} `
+  - If device serial number does not exist in the database or no entry found:
+    - JSON Response: ` {"success": 0, "status": 406, "message": "Entries not found"} `
 - **Success Response:**
-  - [Success response details...]
+  - If device serial number exists and device info retrieved successfully:
+    - JSON Response: ` {"success": 1, "status": 200, "message": "Devices retrieved 
+successfully", "deviceInfo": ["deviceSerialNo, deviceModel, deviceQRCode, deviceIMEI, 
+SIMNo, clientName, clientAddress"]} `
 - **Failure Response:**
-  - [Failure response details...]
+  - If any exception occurs:
+    - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
+
 
 ### Add Device API:
 - **Base URL:** `https://config.iot.mrmprocom.com/php-admin/addDevices.php`
@@ -186,13 +200,44 @@
   - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
   - Allow-Methods: `POST`
 - **Request Data:**
-  - [Request data details...]
-- **Error Handling:**
-  - [Error handling details...]
+     - ` deviceSerialNo`
+    - `deviceModel`
+    - `deviceQRCode`
+    - `deviceIMEI`
+    - `SIMNo`
+    - `clientName`
+    - `clientAddress`
+ - **Error Handling:**
+    - If request type is not POST: 
+        - JSON Response: ` {"success": 0, "status": 404, "message": "Invalid request type"} `
+    - If empty or missing fields:
+        - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
+        "fields": ["deviceSerialNo", "deviceModel", "deviceQRCode", "deviceIMEI", "SIMNo", 
+        "clientName", "clientAddress"} `
+    - If invalid device serial number length:
+        - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device serial number 
+        length"} `
+    - If invalid device QR code length:
+         - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device QR code 
+            length"} `
+    - If invalid device IMEI length:
+        - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device IMEI 
+        length"} `
+    - If invalid device serial number length:
+        - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid SIM number 
+        length"} `
+    - If device already exist in the database:
+        - JSON Response: ` {"success": 0, "status": 408, "message": "Device already exist"} `
+    - If device not added:
+         - JSON Response: ` {"success": 0, "status": 410, "message": " Device not added"}
 - **Success Response:**
-  - [Success response details...]
+  - If device added successfully:
+    - JSON Response: ` {"success": 1, "status": 200, "message": "Device added successfully"} 
+        `
 - **Failure Response:**
-  - [Failure response details...]
+  - If any exception occurs:
+     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
+
 
 ### Delete Device API:
 - **Base URL:** `https://config.iot.mrmprocom.com/php-admin/deleteDevices.php`
@@ -202,11 +247,25 @@
 - **Request Data:**
   - `deviceSerialNo`
 - **Error Handling:**
-  - [Error handling details...]
+  - If request type is not POST: 
+     - JSON Response: ` {"success": 0, "status": 404, "message": "Invalid request type"} `
+ 
+  - If empty or missing fields:
+    - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
+        "fields": ["deviceSerialNo"]} `
+ 
+  - If device does not exist in the database:
+    - JSON Response: ` {"success": 0, "status": 407, "message": "Device not found"} `
+  - If device not deleted:
+     - JSON Response: ` {"success": 0, "status": 409, "message": "Device not deleted"} `
 - **Success Response:**
-  - [Success response details...]
+  - If device deleted successfully:
+    - JSON Response: ` {"success": 1, "status": 200, "message": "Device deleted 
+successfully"} `
 - **Failure Response:**
-  - [Failure response details...]
+  - If any exception occurs:
+    - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
+
 
 ### Edit Device API:
 - **Base URL:** `https://config.iot.mrmprocom.com/php-admin/editDevices.php`
@@ -214,16 +273,53 @@
   - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
   - Allow-Methods: `POST`
 - **Request Data:**
-  - [Request data details...]
+  - ` deviceSerialNo`
+  - `deviceModel`
+  - `deviceQRCode`
+  - `deviceIME`
+  - `SIMNo`
+  - `clientName`
+  - `clientAddress`
 - **Error Handling:**
-  - [Error handling details...]
+  - If request type is not POST: 
+    - JSON Response: ` {"success": 0, "status": 404, "message": "Invalid request type"} ` 
+ 
+  - If empty or missing fields:
+    - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
+"fields": ["deviceSerialNo", "deviceModel", "deviceQRCode", "deviceIMEI", "SIMNo", 
+"clientName", "clientAddress"]} `
+ 
+  - If invalid device serial number length:
+    - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device serial number 
+length"} `
+  - If invalid device QR code length:
+    - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device QR code 
+length"} `
+  - If invalid device IMEI length:
+    - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device IMEI 
+length"} `
+  - If invalid device serial number length:
+    - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid SIM number 
+length"} `
+  - If device already exist in the database:
+    - JSON Response: ` {"success": 0, "status": 408, "message": "Device already exist"} `
+  - If device info not edited:
+    - JSON Response: ` {"success": 0, "status": 411, "message": "Device info not edited"}
+  - If device does not exist in the database:
+    - JSON Response: ` {"success": 0, "status": 407, "message": "Device not found"} `
 - **Success Response:**
-  - [Success response details...]
+  - If nickname edited successfully:
+    - JSON Response: ` {"success": 1, "status": 200, "message": "Device Info edited 
+successfully"} `
 - **Failure Response:**
-  - [Failure response details...]
+  - If any exception occurs:
+    - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ## 5. Demo to App:
-- [Instructions for using the application...]
+- **Using the App:**
+  - Admin users can access all functionalities related to device management, SIM card activation, billing status management, and more.
+  - User accounts have limited access to view device details and manage billing status.
+  - Production Line operators can add devices to the database and activate SIM cards in test mode.
 
 ## 6. Future Scope:
 - Implementation of additional features such as [list potential future features...].
