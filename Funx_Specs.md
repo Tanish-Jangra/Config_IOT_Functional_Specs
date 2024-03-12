@@ -316,15 +316,25 @@ successfully"} `
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ## 5. Demo to App:
-- **Using the App:**
-  - Admin users can access all functionalities related to device management, SIM card activation, billing status management, and more.
-  - User accounts have limited access to view device details and manage billing status.
-  - Production Line operators can add devices to the database and activate SIM cards in test mode.
-
+  - First stage is authentication(register, verify email, login).
+  - Based on user operator mode(admin, production line, or user) features are segregated. User gets features based on their mode.
+  - Admin:
+      - can perform all tasks like Add new device, edit device, delete device.
+      - can check the billing status of Device SIM Card, activate, suspend and deactivate SIM.
+      - can update KYC details.
+  - Production Line:
+    - can add new device to database.
+    - activate sim in test mode.    
+  - User:
+    - can check device status and details.
 ## 6. Future Scope:
-- Implementation of additional features such as [list potential future features...].
-- Integration of Airtel APIs for [specific functionalities...] as per requirements.
-
+  - Implementation of Billing & Payment Functionality:
+  - Extend billing and payment actions to both administrators and users.
+  - Admins will have the capability to manage billing and payments for devices and SIMs.
+  - Users will be provided with billing details and the ability to make payments conveniently through the application.
+  - Integrate secure payment gateways to facilitate smooth transactions.
+  - Implement features for generating invoices, tracking payment histories, and setting up recurring payments.
+  - Enhance user experience by providing notifications for upcoming payments and overdue bills.
 ---
 
 ### Error Codes:
