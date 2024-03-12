@@ -287,7 +287,7 @@ successfully"} `
   - If empty or missing fields:
     - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
 "fields": ["deviceSerialNo", "deviceModel", "deviceQRCode", "deviceIMEI", "SIMNo", 
-"clientName", "clientAddress"} `
+"clientName", "clientAddress"]} `
  
   - If invalid device serial number length:
     - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device serial number 
@@ -316,9 +316,10 @@ successfully"} `
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ## 5. Demo to App:
-- **Getting Started:**
-  - Users can download the IOT device management application from the designated platform.
-  - Upon installation, users can sign up for a new account or log in with existing credentials.
+- **Using the App:**
+  - Admin users can access all functionalities related to device management, SIM card activation, billing status management, and more.
+  - User accounts have limited access to view device details and manage billing status.
+  - Production Line operators can add devices to the database and activate SIM cards in test mode.
 
 ## 6. Future Scope:
 - Implementation of additional features such as [list potential future features...].
