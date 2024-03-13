@@ -25,20 +25,19 @@
 - **Functionality for Users:**
   - User accounts have restricted access compared to Admin accounts.
   - Users can view device details and access billing status information for SIM cards associated with their account.
-  - Payment processing functionalities are available for users to update billing status based on monthly or yearly plans.
 
 - **Functionality for Production Line:**
-  - Production Line operators have limited access to specific functionalities for adding devices to the database and activating SIM cards in test mode for initial testing purposes.
+  - Production Line operators have limited access to specific functionalities for adding devices to the database.
 
 - **API Integration:**
-  - The application integrates with external APIs to perform various actions such as user registration, login, forgot password, email verification, device management, etc.
+  - The application integrates with APIs to perform various actions such as user registration, login, forgot password, email verification, device management, etc.
   - Detailed specifications for each API endpoint are provided below:
 
 ## 4. API Integration Details:
 ### Register API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/register.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/register.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
   - `name`
@@ -67,9 +66,9 @@
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ### Login API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/login.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/login.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
   - Allow-Methods: `POST`
 - **Request Data:**
   - `email`
@@ -97,9 +96,9 @@
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ### Forgot Password API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/forgetPass.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/forgetPass.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
   - `email`
@@ -122,9 +121,9 @@
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
 ### Send Email Verification API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/sendVerificationLink.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/sendVerificationLink.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
   - `email`
@@ -146,9 +145,9 @@
     - JSON Response: ` {"success": 1, "status": 200, "message": "Verification link sent successfully"} `
 
 ### Email Verification API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/verifyEmail.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/verifyEmail.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `GET`
 - **Request Data:**
   - `email`
@@ -167,9 +166,9 @@
     - JSON Response: ` {"success": 1, "status": 200, "message": "Email verification successful"} `
 
 ### Get Device API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/getDevices.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/getDevices.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `GET`
 - **Request Data:**
   - `deviceSerialNo`
@@ -195,9 +194,9 @@ SIMNo, clientName, clientAddress"]} `
 
 
 ### Add Device API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/addDevices.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/addDevices.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
      - ` deviceSerialNo`
@@ -213,7 +212,7 @@ SIMNo, clientName, clientAddress"]} `
     - If empty or missing fields:
         - JSON Response: ` {"success": 0, "status": 444, "message": "Missing or empty fields", 
         "fields": ["deviceSerialNo", "deviceModel", "deviceQRCode", "deviceIMEI", "SIMNo", 
-        "clientName", "clientAddress"} `
+        "clientName", "clientAddress"]} `
     - If invalid device serial number length:
         - JSON Response: ` {"success": 0, "status": 422, "message": "Invalid device serial number 
         length"} `
@@ -240,9 +239,9 @@ SIMNo, clientName, clientAddress"]} `
 
 
 ### Delete Device API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/deleteDevices.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/deleteDevices.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
   - `deviceSerialNo`
@@ -268,9 +267,9 @@ successfully"} `
 
 
 ### Edit Device API:
-- **Base URL:** `https://config.iot.mrmprocom.com/php-admin/editDevices.php`
+- **Base URL:** https://config.iot.mrmprocom.com/php-admin/editDevices.php
 - **Access Control:**
-  - Allow-Origin: `https://config.iot.mrmprocom.com, https://test.mrmprocom.com `
+  - Allow-Origin: https://config.iot.mrmprocom.com, https://test.mrmprocom.com 
   - Allow-Methods: `POST`
 - **Request Data:**
   - ` deviceSerialNo`
@@ -315,6 +314,119 @@ successfully"} `
   - If any exception occurs:
     - JSON Response: ` {"success": 0, "status": 500, "message": "Internal server error"} `
 
+## 5. Airtel APIs:
+### Account Authorization:
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/developer/generate/authtoken
+  - **Access Control:**
+    - Allow-Methods: `POST`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If authorize successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Account Details:
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/details/
+  - **Access Control:**
+    - Allow-Methods: `GET`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get account details successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Customer Stats :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/details/stats
+  - **Access Control:**
+    - Allow-Methods: `GET`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get stats successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Customer Plans :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/details/plans
+  - **Access Control:**
+    - Allow-Methods: `GET`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get plans successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Customer Baskets :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/details/baskets
+  - **Access Control:**
+    - Allow-Methods: `GET`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get Customer Baskets successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Acivate SIM :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/om/job/sim/activate
+  - **Access Control:**
+    - Allow-Methods: `POST`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If SIM activated successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### KYC Details :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/kyc/sim/details
+  - **Access Control:**
+    - Allow-Methods: `GET`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get KYC Details successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
+### Update KYC Details :
+  - **Headers:**
+    -  [accept, apikey, iv-user, Content-Type, Authorization, customer-id]
+  - **Base URL:** https://openapi.airtel.in/iot/api/customer/kyc/sim/update
+  - **Access Control:**
+    - Allow-Methods: `POST`
+  - **Error Handling**
+    - If Request Message is not correct:
+      - JSON Response: ` {"success": 0, "status": 400, "message": " Request Message is not correct"} `  
+    - If Server Error:
+      - JSON Response: ` {"success": 0, "status": 500, "message": "  Internal Server Error"} `  
+  - **Success Response:**
+      - If get KYC Details successfully:
+        - JSON Response: `{"success":1, "status": 200, "message":"OK"}` 
 ## 5. Demo to App:
   - First stage is authentication(register, verify email, login).
   - Based on user operator mode(admin, production line, or user) features are segregated. User gets features based on their mode.
